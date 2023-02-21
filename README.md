@@ -1,3 +1,51 @@
+# CinemaHub - API de Películas y Programas de TV
+Esta es una API para agregar y recuperar información sobre películas y programas de televisión.
+
+##Endpoints
+
+###Autentificacion
+POST /api/auth/login
+Inicia sesión para obtener un token
+
+###Categories
+GET /api/categories
+Devuelve todas las películas en la base de datos.
+
+###Películas
+GET /api/movies
+Devuelve todas las películas en la base de datos.
+
+Parámetros de consulta
+category_id (opcional): filtra las películas por ID de categoría.
+year (opcional): filtra las películas por año.
+
+POST /api/movies
+Agrega una nueva película a la base de datos.
+
+Parámetros de solicitud
+title (requerido): título de la película.
+description (requerido): descripción de la película.
+duration (requerido): duración de la película.
+year (requerido): año de lanzamiento de la película.
+director_id (requerido): ID del director de la película.
+category_ids (requerido): lista de ID de categorías asociadas a la película.
+actor_ids (requerido): lista de ID de actores asociados a la película.
+
+###TV Shows
+GET /api/tvshows
+Devuelve todos los tv shows en la base de datos.
+
+POST /api/tvshows
+Agrega un nuevo tvshow a la base de datos.
+
+Parámetros de solicitud
+title (requerido): título del tv show.
+description (requerido): descripción del tv show.
+year (requerido): año de lanzamiento del tv show.
+category_ids (requerido): lista de ID de categorías asociadas al tv show.
+actor_ids (requerido): lista de ID de actores asociados al tv show.
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
