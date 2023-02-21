@@ -13,13 +13,13 @@ class Episode extends Model
         'description',
         'duration',
         'director_id',
-        'seasson_id'
+        'season_id'
     ];
 
     public function director(){
         return $this->belongsTo(Director::class);
     }
-    public function seasson(){
-        return $this->belongsTo(Seasson::class);
+    public function season(){
+        return $this->belongsTo(Season::class);
     }
 }

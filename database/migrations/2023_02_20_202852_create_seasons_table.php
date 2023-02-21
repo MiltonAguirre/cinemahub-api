@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('seassons', function (Blueprint $table) {
+        Schema::create('seasons', function (Blueprint $table) {
             $table->id();
             $table->year('year');
             $table->unsignedBigInteger('tv_show_id');
             $table->timestamps();
         });
-        Schema::table('seassons', function($table) {
+        Schema::table('seasons', function($table) {
             $table->foreign('tv_show_id')->references('id')->on('tv_shows')->onDelete('cascade');
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seassons');
+        Schema::dropIfExists('seasons');
     }
 };

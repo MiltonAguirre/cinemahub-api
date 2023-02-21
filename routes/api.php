@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\TvShowController;
 
@@ -27,11 +28,12 @@ Route::group([
     Route::post('refresh', 'refresh');
 });
 
-/* 
-Endpoint for retrieving movies. It should be allowed to filter and sort by some field.
-Endpoint for retrieving the information (director included) of a specific episode of a TV Show
-Endpoint for adding a new object (it could be for any entity you like).
-*/
+Route::group([
+    'prefix' => 'categories', 
+    'controller'=>CategoryController::class, 
+    'middleware'=>'auth:api'], function () {
+    Route::get('/', 'index');
+});
 Route::group([
     'prefix' => 'movies', 
     'controller'=>MovieController::class, 
@@ -45,4 +47,7 @@ Route::group([
     'middleware'=>'auth:api'], function () {
     Route::get('/', 'index');
     Route::post('/', 'store');
+    Route::post('/seasons', 'storeSeason');
+    Route::post('/seasons/{season_number}/episodes', 'storeEpisode');
+    Route::get('/{tv_id}/seasons/{season_number}/episodes/{episode_number}', 'getEpisode');
 });

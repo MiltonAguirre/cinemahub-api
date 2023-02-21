@@ -13,11 +13,25 @@ use Validator;
 class MovieController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $movies = Movie::with('director')->with('categories')->with('actors')->distinct()->get();
-            return response()->json($movies,200);
+            $category_id = $request->input('category_id');
+            $year = $request->input('year');
+            $moviesQuery = Movie::query()
+                                ->with('director')
+                                ->with('categories')
+                                ->with('actors');
+            if ($category_id) {
+                $moviesQuery->whereHas('categories', function ($query) use ($category_id) {
+                    $query->where('category_id', $category_id);
+                });
+            }
+            if ($year){
+                $moviesQuery->where('year', $year);
+            }
+            $movies = $moviesQuery->distinct()->get();
+            return response()->json($movies,200); 
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return response()->json(['message'=> 'Ups, something is wrong'],400);

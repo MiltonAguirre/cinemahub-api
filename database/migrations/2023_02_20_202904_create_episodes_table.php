@@ -18,11 +18,13 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('duration');
-            $table->unsignedBigInteger('seasson_id');
+            $table->unsignedBigInteger('director_id');
+            $table->unsignedBigInteger('season_id');
             $table->timestamps();
         });
         Schema::table('episodes', function($table) {
-            $table->foreign('seasson_id')->references('id')->on('seassons')->onDelete('cascade');
+            $table->foreign('season_id')->references('id')->on('seasons')->onDelete('cascade');
+            $table->foreign('director_id')->references('id')->on('directors');
         });
     }
 

@@ -19,8 +19,8 @@ class TvShow extends Model
     public function categories(){
         return $this->belongsToMany(Category::class);
     }
-    public function seassons(){
-        return $this->hasMany(Seasson::class);
+    public function seasons(){
+        return $this->hasMany(Season::class);
     }
 
 }
