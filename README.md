@@ -1,75 +1,101 @@
 # CinemaHub - API de Películas y Programas de TV
+
 Esta es una API para agregar y recuperar información sobre películas y programas de televisión.
 
 ## Installation
-First you have to clone the repository
+
+1. First you have to clone the repository
+
 ```bash
 git clone https://github.com/MiltonAguirre/cinemahub-api.git
 cd cinemahub-api
 ```
-use [npm] package manager to install dependencies
+
+Use [composer] package manager to install dependencies
+
 ```bash
-npm install
+composer install
 ```
+
 Load the values from your local DB into your [.env] file
+
 ```bash
 DB_DATABASE=db_cinemahub
 DB_USERNAME=root
 DB_PASSWORD=asdasdasd
 ```
+
 Then you must run the migrations and the seeders
+
 ```bash
 php artisan migrate --seed
 ```
+
 You will have the test user available to get a token
-email: user@test.com
-password: password
 
+    - email: user@test.com
+    - password: password
 
-# Endpoints
+Raise the server with the following command
 
-##Autentificacion
-POST /api/auth/login
-Inicia sesión para obtener un token
+```bash
+php artisan serve
+```
 
-## Categories
-GET /api/categories
-Devuelve todas las películas en la base de datos.
+## Endpoints
 
-## Películas
-GET /api/movies
-Devuelve todas las películas en la base de datos.
+### Authentication
 
-Parámetros de consulta
-category_id (opcional): filtra las películas por ID de categoría.
-year (opcional): filtra las películas por año.
+-   POST /api/auth/login
+    Sign in to get a token
 
-POST /api/movies
-Agrega una nueva película a la base de datos.
+### Categories
 
-Parámetros de solicitud
-title (requerido): título de la película.
-description (requerido): descripción de la película.
-duration (requerido): duración de la película.
-year (requerido): año de lanzamiento de la película.
-director_id (requerido): ID del director de la película.
-category_ids (requerido): lista de ID de categorías asociadas a la película.
-actor_ids (requerido): lista de ID de actores asociados a la película.
+-   GET /api/categories
+    Returns all categories in the database.
 
-## TV Shows
-GET /api/tvshows
-Devuelve todos los tv shows en la base de datos.
+### Movies
 
-POST /api/tvshows
-Agrega un nuevo tvshow a la base de datos.
+-   GET /api/movies
+    Retrieves all movies in the database
 
-Parámetros de solicitud
-title (requerido): título del tv show.
-description (requerido): descripción del tv show.
-year (requerido): año de lanzamiento del tv show.
-category_ids (requerido): lista de ID de categorías asociadas al tv show.
-actor_ids (requerido): lista de ID de actores asociados al tv show.
+##### Query parameters
 
+| Parameters             |          Description          |
+| ---------------------- | :---------------------------: |
+| category_id (optional) | Filter movies by category IDe |
+| year (optional)        |     Filter movies by year     |
+
+-   POST /api/movies
+    Add a new movie to the database.
+
+##### Query parameters
+
+| Parameters              |                  Description                   |
+| ----------------------- | :--------------------------------------------: |
+| title (required)        |                  Movie title                   |
+| description (required)  |               Movie description                |
+| year (required)         |               Movie release year               |
+| category_ids (required) | list of category IDs associated with the movie |
+| actor_ids (required)    |  list of actor IDs associated with the movie   |
+
+### TV Shows
+
+-   GET /api/tvshows
+    Returns all tv shows in the database.
+
+-   POST /api/tvshows
+    Add a new tvshow to the database.
+
+##### Query parameters
+
+| Parameters              |                   Description                    |
+| ----------------------- | :----------------------------------------------: |
+| title (required)        |                  Tv show title                   |
+| description (required)  |               tv show description                |
+| year (required)         |               Tv show release year               |
+| category_ids (required) | list of category IDs associated with the tv show |
+| actor_ids (required)    |  list of actor IDs associated with the tv show   |
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
@@ -84,13 +110,13 @@ actor_ids (requerido): lista de ID de actores asociados al tv show.
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   [Simple, fast routing engine](https://laravel.com/docs/routing).
+-   [Powerful dependency injection container](https://laravel.com/docs/container).
+-   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+-   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+-   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+-   [Robust background job processing](https://laravel.com/docs/queues).
+-   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
@@ -108,19 +134,19 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+-   **[Vehikl](https://vehikl.com/)**
+-   **[Tighten Co.](https://tighten.co)**
+-   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+-   **[64 Robots](https://64robots.com)**
+-   **[Cubet Techno Labs](https://cubettech.com)**
+-   **[Cyber-Duck](https://cyber-duck.co.uk)**
+-   **[Many](https://www.many.co.uk)**
+-   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+-   **[DevSquad](https://devsquad.com)**
+-   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+-   **[OP.GG](https://op.gg)**
+-   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+-   **[Lendio](https://lendio.com)**
 
 ## Contributing
 
