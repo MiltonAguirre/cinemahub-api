@@ -30,7 +30,7 @@ DB_PASSWORD=asdasdasd
 Generate JWT secret key
 
 This will update your .env file with something like JWT*SECRET=foobar<br/>
-*It is the key that will be used to sign your tokens.*
+*It is the key that will be used to sign your tokens.\*
 
 ```bash
 php artisan jwt:secret
@@ -52,6 +52,14 @@ Raise the server with the following command
 
 ```bash
 php artisan serve
+```
+
+## Testing
+
+To execute the unit tests you must create a database with the name:**db_cinemahub_test**
+
+```bash
+php artisan test --env=testing
 ```
 
 ## Endpoints
@@ -146,7 +154,7 @@ php artisan serve
 
 # Features
 
--   Unit tests
+-   More unit tests
 -   Endpoints for retrieving Actors, Directors, and all episodes of a season.
 -   Add images to Movie, Actor, or Directors.
 -   Add more information to the entities.
