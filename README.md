@@ -26,17 +26,17 @@ email: user@test.com
 password: password
 
 
-#Endpoints
+# Endpoints
 
 ##Autentificacion
 POST /api/auth/login
 Inicia sesión para obtener un token
 
-##Categories
+## Categories
 GET /api/categories
 Devuelve todas las películas en la base de datos.
 
-##Películas
+## Películas
 GET /api/movies
 Devuelve todas las películas en la base de datos.
 
@@ -56,7 +56,7 @@ director_id (requerido): ID del director de la película.
 category_ids (requerido): lista de ID de categorías asociadas a la película.
 actor_ids (requerido): lista de ID de actores asociados a la película.
 
-##TV Shows
+## TV Shows
 GET /api/tvshows
 Devuelve todos los tv shows en la base de datos.
 
