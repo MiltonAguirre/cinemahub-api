@@ -1,10 +1,9 @@
-# CinemaHub - API de Películas y Programas de TV
+# CinemaHub - Movies and TV Shows API
 
-Esta es una API para agregar y recuperar información sobre películas y programas de televisión.
-
+This is an API for adding and retrieving information about movies and TV shows.
 ## Installation
 
-1. First you have to clone the repository
+First you have to clone the repository
 
 ```bash
 git clone https://github.com/MiltonAguirre/cinemahub-api.git
