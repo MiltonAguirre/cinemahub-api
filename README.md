@@ -1,6 +1,7 @@
 # CinemaHub - Movies and TV Shows API
 
 This is an API for adding and retrieving information about movies and TV shows.
+
 ## Installation
 
 First you have to clone the repository
@@ -30,10 +31,11 @@ Then you must run the migrations and the seeders
 php artisan migrate --seed
 ```
 
-You will have the test user available to get a token
+_Thanks to the seeders, 8 categories, 5 directors and 15 actors are created using Faker._
+_You will also have a user so you can log in with the following data:_
 
-    - email: user@test.com
-    - password: password
+-   email: user@test.com
+-   password: password
 
 Raise the server with the following command
 
@@ -74,7 +76,9 @@ php artisan serve
 | ----------------------- | :--------------------------------------------: |
 | title (required)        |                  Movie title                   |
 | description (required)  |               Movie description                |
+| duration (required)     | Duration of the movie, for example: '1:30 hs'  |
 | year (required)         |               Movie release year               |
+| director_id (required)  |               Movie director id                |
 | category_ids (required) | list of category IDs associated with the movie |
 | actor_ids (required)    |  list of actor IDs associated with the movie   |
 
@@ -95,6 +99,43 @@ php artisan serve
 | year (required)         |               Tv show release year               |
 | category_ids (required) | list of category IDs associated with the tv show |
 | actor_ids (required)    |  list of actor IDs associated with the tv show   |
+
+### Season
+
+-   POST /api/tvshows/seasons
+    Add a new tvshow season to the database.
+
+##### Query parameters
+
+| Parameters            |     Description     |
+| --------------------- | :-----------------: |
+| tv_show_id (required) |     Tv show ID      |
+| year (required)       | Season release year |
+
+### Episode
+
+-   GET /api/tvshows/{tv_id}/seasons/{season_number}/episodes/{episode_number}
+    Returns episode.
+
+-   POST /api/tvshows/seasons/{season_number}/episodes
+    Add an episode to a season of a tv show
+
+##### Query parameters
+
+| Parameters              |                   Description                    |
+| ----------------------- | :----------------------------------------------: |
+| title (required)        |                  Episode title                   |
+| description (required)  |               Episode description                |
+| duration (required)     | Duration of the episode, for example: '0:40 hs'  |
+| director_id (required)  |               Episode director id                |
+| category_ids (required) | list of category IDs associated with the Episode |
+| actor_ids (required)    |  list of actor IDs associated with the Episode   |
+
+# Features
+
+-   Endpoints for retrieving Actors, Directors, and all episodes of a season.
+-   Add images to Movie, Actor, or Directors.
+-   Add more information to the entities.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
