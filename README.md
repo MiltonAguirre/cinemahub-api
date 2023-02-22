@@ -59,15 +59,15 @@ php artisan serve
 
 ### Movies
 
--   GET _/api/movies_ <br/>
+-   GET _/api/movies?category_id=2&year=2013_ <br/>
     Retrieves all movies in the database
 
 ##### Query parameters
 
-| Parameters             |          Description          |
-| ---------------------- | :---------------------------: |
-| category_id (optional) | Filter movies by category IDe |
-| year (optional)        |     Filter movies by year     |
+| Parameters             |         Description          |
+| ---------------------- | :--------------------------: |
+| category_id (optional) | Filter movies by category ID |
+| year (optional)        |    Filter movies by year     |
 
 -   POST _/api/movies_ <br/>
     Add a new movie to the database.
@@ -135,6 +135,7 @@ php artisan serve
 
 # Features
 
+-   Unit tests
 -   Endpoints for retrieving Actors, Directors, and all episodes of a season.
 -   Add images to Movie, Actor, or Directors.
 -   Add more information to the entities.
