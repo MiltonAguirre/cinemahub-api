@@ -1,17 +1,42 @@
 # CinemaHub - API de Películas y Programas de TV
 Esta es una API para agregar y recuperar información sobre películas y programas de televisión.
 
-##Endpoints
+## Installation
+First you have to clone the repository
+```bash
+git clone https://github.com/MiltonAguirre/cinemahub-api.git
+cd cinemahub-api
+```
+use [npm] package manager to install dependencies
+```bash
+npm install
+```
+Load the values from your local DB into your [.env] file
+```bash
+DB_DATABASE=db_cinemahub
+DB_USERNAME=root
+DB_PASSWORD=asdasdasd
+```
+Then you must run the migrations and the seeders
+```bash
+php artisan migrate --seed
+```
+You will have the test user available to get a token
+email: user@test.com
+password: password
 
-###Autentificacion
+
+#Endpoints
+
+##Autentificacion
 POST /api/auth/login
 Inicia sesión para obtener un token
 
-###Categories
+##Categories
 GET /api/categories
 Devuelve todas las películas en la base de datos.
 
-###Películas
+##Películas
 GET /api/movies
 Devuelve todas las películas en la base de datos.
 
@@ -31,7 +56,7 @@ director_id (requerido): ID del director de la película.
 category_ids (requerido): lista de ID de categorías asociadas a la película.
 actor_ids (requerido): lista de ID de actores asociados a la película.
 
-###TV Shows
+##TV Shows
 GET /api/tvshows
 Devuelve todos los tv shows en la base de datos.
 
