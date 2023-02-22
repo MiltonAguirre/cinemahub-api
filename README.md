@@ -17,12 +17,23 @@ Use [composer] package manager to install dependencies
 composer install
 ```
 
+**Configuration**
+
 Load the values from your local DB into your [.env] file
 
 ```bash
 DB_DATABASE=db_cinemahub
 DB_USERNAME=root
 DB_PASSWORD=asdasdasd
+```
+
+Generate JWT secret key
+
+This will update your .env file with something like JWT*SECRET=foobar<br/>
+*It is the key that will be used to sign your tokens.*
+
+```bash
+php artisan jwt:secret
 ```
 
 Then you must run the migrations and the seeders
