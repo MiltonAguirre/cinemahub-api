@@ -47,17 +47,19 @@ php artisan serve
 
 ### Authentication
 
--   POST /api/auth/login
+-   POST _/api/auth/login_ <br/>
     Sign in to get a token
+-   POST _/api/auth/refresh_ <br/>
+    Refresh token
 
 ### Categories
 
--   GET /api/categories
+-   GET _/api/categories_ <br/>
     Returns all categories in the database.
 
 ### Movies
 
--   GET /api/movies
+-   GET _/api/movies_ <br/>
     Retrieves all movies in the database
 
 ##### Query parameters
@@ -67,7 +69,7 @@ php artisan serve
 | category_id (optional) | Filter movies by category IDe |
 | year (optional)        |     Filter movies by year     |
 
--   POST /api/movies
+-   POST _/api/movies_ <br/>
     Add a new movie to the database.
 
 ##### Query parameters
@@ -84,10 +86,10 @@ php artisan serve
 
 ### TV Shows
 
--   GET /api/tvshows
+-   GET _/api/tvshows_ <br/>
     Returns all tv shows in the database.
 
--   POST /api/tvshows
+-   POST _/api/tvshows_ <br/>
     Add a new tvshow to the database.
 
 ##### Query parameters
@@ -102,8 +104,8 @@ php artisan serve
 
 ### Season
 
--   POST /api/tvshows/seasons
-    Add a new tvshow season to the database.
+-   POST _/api/tvshows/seasons_ <br/>
+    Add a new tvshow season to the database. <br/>
 
 ##### Query parameters
 
@@ -114,10 +116,10 @@ php artisan serve
 
 ### Episode
 
--   GET /api/tvshows/{tv_id}/seasons/{season_number}/episodes/{episode_number}
-    Returns episode.
+-   GET _/api/tvshows/{tv_id}/seasons/{season_number}/episodes/{episode_number}/_ <br/>
+    Returns specific episode of a TV Show.
 
--   POST /api/tvshows/seasons/{season_number}/episodes
+-   POST _/api/tvshows/seasons/{season_number}/episodes_ <br/>
     Add an episode to a season of a tv show
 
 ##### Query parameters
