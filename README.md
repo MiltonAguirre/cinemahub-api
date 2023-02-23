@@ -29,8 +29,8 @@ DB_PASSWORD=asdasdasd
 
 Generate JWT secret key
 
-This will update your .env file with something like JWT*SECRET=foobar<br/>
-*It is the key that will be used to sign your tokens.\*
+This will update your .env file with something like JWT_SECRET=foobar<br/>
+_It is the key that will be used to sign your tokens._
 
 ```bash
 php artisan jwt:secret
