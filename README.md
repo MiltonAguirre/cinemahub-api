@@ -152,12 +152,12 @@ php artisan test --env=testing
 | category_ids (required) | list of category IDs associated with the Episode |
 | actor_ids (required)    |  list of actor IDs associated with the Episode   |
 
-# Features
+# Pending to do
 
 -   More unit tests
 -   Endpoints for retrieving Actors, Directors, and all episodes of a season.
--   Add images to Movie, Actor, or Directors.
--   Add more information to the entities.
+-   Add images to movies, actors and directors.
+-   Add more information to entities.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
