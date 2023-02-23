@@ -42,7 +42,7 @@ class MovieController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|min:2|max:255|regex:/^[a-zA-Z0-9\s]+$/u',
-            'description' => 'required|string|min:2|max:255|regex:/^[a-zA-Z0-9\s]+$/u',
+            'description' => 'required|string|min:2|max:255|regex:/^[a-zA-Z0-9\s:,.]+$/u',
             'duration' => 'required|string|min:2|max:255|regex:/^[a-zA-Z0-9\s:]+$/u',
             'year' => 'required|date_format:Y',
             'director_id' => 'required|integer|min:1',
